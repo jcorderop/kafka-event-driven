@@ -1,7 +1,7 @@
 package com.bank.account.command;
 
 import com.bank.account.command.api.commands.*;
-import com.bank.account.command.infrastructure.CommandDispatcher;
+import com.bank.cqrs.core.infrastructure.CommandDispatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

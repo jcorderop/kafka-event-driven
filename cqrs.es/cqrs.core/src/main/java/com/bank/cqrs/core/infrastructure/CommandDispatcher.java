@@ -1,10 +1,8 @@
-package com.bank.account.command.infrastructure;
+package com.bank.cqrs.core.infrastructure;
 
 import com.bank.cqrs.core.commands.BaseCommand;
 import com.bank.cqrs.core.commands.CommandHandlerMethod;
-import org.springframework.stereotype.Component;
 
-@Component
 public interface CommandDispatcher {
 
     <T extends BaseCommand> void registerHandler(Class<T> type, CommandHandlerMethod<T> handler);

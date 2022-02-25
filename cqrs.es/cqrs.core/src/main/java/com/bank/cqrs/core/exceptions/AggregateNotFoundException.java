@@ -1,4 +1,4 @@
-package com.bank.account.command.exceptions;
+package com.bank.cqrs.core.exceptions;
 
 public class AggregateNotFoundException extends RuntimeException {
     public AggregateNotFoundException(String s) {

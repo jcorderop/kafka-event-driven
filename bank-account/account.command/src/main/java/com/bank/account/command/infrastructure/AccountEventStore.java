@@ -3,8 +3,8 @@ package com.bank.account.command.infrastructure;
 import com.bank.account.command.domain.AccountAggregator;
 import com.bank.cqrs.core.infrastructure.EventStore;
 import com.bank.account.command.domain.EventStoreRepository;
-import com.bank.account.command.exceptions.AggregateNotFoundException;
-import com.bank.account.command.exceptions.ConcurrencyException;
+import com.bank.cqrs.core.exceptions.AggregateNotFoundException;
+import com.bank.cqrs.core.exceptions.ConcurrencyException;
 import com.bank.cqrs.core.events.BaseEvent;
 import com.bank.cqrs.core.events.EventModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +56,6 @@ public class AccountEventStore implements EventStore {
         if (eventStream ==  null || eventStream.isEmpty()) {
             throw new AggregateNotFoundException("Incorrect Account ID provided.");
         }
-        return eventStream.stream().map(eventModel -> eventModel.getEventData()).collect(Collectors.toList());
+        return eventStream.stream().map(EventModel::getEventData).collect(Collectors.toList());
     }
 }
