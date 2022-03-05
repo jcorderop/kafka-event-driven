@@ -1,6 +1,5 @@
 package com.bank.account.command.domain;
 
-import com.bank.account.command.api.commands.CloseAccountCommand;
 import com.bank.account.command.api.commands.OpenAccountCommand;
 import com.bank.cqrs.core.domain.AggregateRoot;
 import events.AccountClosedEvent;
@@ -9,7 +8,7 @@ import events.DepositFundsEvent;
 import events.WithdrawFundsEvent;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 public class AccountAggregator extends AggregateRoot {
@@ -22,7 +21,7 @@ public class AccountAggregator extends AggregateRoot {
         raiseEvent(AccountOpenedEvent.builder()
                 .id(command.getId())
                 .accountHolder(command.getAccountHolder())
-                .createDate(LocalDate.now())
+                .createDate(LocalDateTime.now())
                 .accountType(command.getAccountType())
                 .openingBalance(command.getOpeningBalance())
                 .build());

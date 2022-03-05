@@ -3,7 +3,6 @@ server:
 
 spring:
   jpa:
-    mongodb:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
     hibernate:
@@ -18,7 +17,7 @@ spring:
       ack-mode: manual_immediate
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: bankaccConsumer
+      group-id: bankAccountConsumer
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

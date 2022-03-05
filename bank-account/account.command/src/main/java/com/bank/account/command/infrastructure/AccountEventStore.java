@@ -1,12 +1,14 @@
 package com.bank.account.command.infrastructure;
 
 import com.bank.account.command.domain.AccountAggregator;
-import com.bank.cqrs.core.infrastructure.EventStore;
 import com.bank.account.command.domain.EventStoreRepository;
-import com.bank.cqrs.core.exceptions.AggregateNotFoundException;
-import com.bank.cqrs.core.exceptions.ConcurrencyException;
 import com.bank.cqrs.core.events.BaseEvent;
 import com.bank.cqrs.core.events.EventModel;
+import com.bank.cqrs.core.exceptions.AggregateNotFoundException;
+import com.bank.cqrs.core.exceptions.ConcurrencyException;
+import com.bank.cqrs.core.infrastructure.EventStore;
+import com.bank.cqrs.core.producers.EventProducer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +16,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class AccountEventStore implements EventStore {
+
+    @Autowired
+    private EventProducer eventProducer;
 
     @Autowired
     private EventStoreRepository eventStoreRepository;
@@ -43,8 +49,9 @@ public class AccountEventStore implements EventStore {
                     .build();
 
             var persistedEvent  = eventStoreRepository.save(eventModel);
-            if (persistedEvent != null) {
-                //TODO: send to kafka
+            if (!persistedEvent.getId().isEmpty()) {
+                log.info("New Message produced: {} - {}",event.getClass().getSimpleName(), event);
+                eventProducer.produce(event.getClass().getSimpleName(), event);
             }
         }
     }
