@@ -15,7 +15,6 @@ public class AccountAggregator extends AggregateRoot {
 
     private Boolean active;
     private double balance;
-    private int version;
 
     public AccountAggregator(OpenAccountCommand command) {
         raiseEvent(AccountOpenedEvent.builder()
@@ -66,7 +65,7 @@ public class AccountAggregator extends AggregateRoot {
         raiseEvent(WithdrawFundsEvent
                 .builder()
                 .id(this.id)
-                .amount(this.balance - amount)
+                .amount(amount)
                 .build());
     }
 
@@ -91,7 +90,4 @@ public class AccountAggregator extends AggregateRoot {
         this.active = false;
     }
 
-    public void setVersion(int version) {
-        this.version = version;
-    }
 }
