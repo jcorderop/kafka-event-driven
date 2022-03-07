@@ -5,11 +5,13 @@ import com.bank.account.read.domain.AccountRepository;
 import com.bank.account.read.domain.BankAccount;
 import com.bank.cqrs.core.domain.BaseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AccountQueryHandler implements QueryHandler {
 
     @Autowired
