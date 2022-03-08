@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "62bf3125-e5d4-414a-88d4-b64f893d7b56",
+		"name": "Kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OpenBankAccount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountHolder\": \"Otro3 Cordero\",\r\n    \"accountType\": \"SAVINGS\",\r\n    \"openingBalance\": 1000.0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/bank/account/open",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DepositFundBankAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 500.0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/bank/account/deposit/86beb049-56a1-4eae-846f-487db9c437ab",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"deposit",
+						"86beb049-56a1-4eae-846f-487db9c437ab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WithdrawFundBankAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 200.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/bank/account/withdraw/9a72adbb-6aaf-4c0e-9e71-447b90a81eb4",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"withdraw",
+						"9a72adbb-6aaf-4c0e-9e71-447b90a81eb4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CloseBankAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/v1/bank/account/close/9a72adbb-6aaf-4c0e-9e71-447b90a81eb4",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"close",
+						"9a72adbb-6aaf-4c0e-9e71-447b90a81eb4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryAllAccounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/api/v1/bank/account/all",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryAccountById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/api/v1/bank/account/number/ae13a77a-2218-49af-babf-13e7325ae80b",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"number",
+						"ae13a77a-2218-49af-babf-13e7325ae80b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryAccountsByHolder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/api/v1/bank/account/holder/Jorge Cordero",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"holder",
+						"Jorge Cordero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryAccountsWithBalance Greater",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/api/v1/bank/account/balance/GREATER_THAN/1100",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"balance",
+						"GREATER_THAN",
+						"1100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryAccountsWithBalance Less",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5001/api/v1/bank/account/balance/LESS_THAN/1100",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"bank",
+						"account",
+						"balance",
+						"LESS_THAN",
+						"1100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RestoreDB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountHolder\": \"Otro3 Cordero\",\r\n    \"accountType\": \"SAVINGS\",\r\n    \"openingBalance\": 1000.0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/restore/db",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"restore",
+						"db"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
