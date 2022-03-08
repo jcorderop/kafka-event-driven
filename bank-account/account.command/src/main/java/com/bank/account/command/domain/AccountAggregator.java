@@ -6,10 +6,12 @@ import events.AccountClosedEvent;
 import events.AccountOpenedEvent;
 import events.DepositFundsEvent;
 import events.WithdrawFundsEvent;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Getter
 @NoArgsConstructor
 public class AccountAggregator extends AggregateRoot {
 

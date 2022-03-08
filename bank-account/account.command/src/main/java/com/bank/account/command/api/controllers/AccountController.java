@@ -19,7 +19,7 @@ import java.util.UUID;
 @Slf4j
 @RestController
 @RequestMapping(path = "/api/v1/bank/account")
-public class Controller {
+public class AccountController {
 
     @Autowired
     private CommandDispatcher commandDispatcher;
